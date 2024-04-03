@@ -1,0 +1,460 @@
+.custom-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 400px;
+    height: 50px;
+    background: linear-gradient(#eaecec, #f3fbff);
+    color: #171616;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.custom-button h3 {
+    margin: 0; /* Remove default margin */
+    text-align: left; /* Align text to the left */
+    flex: 1; /* Allow the text to take up remaining space */
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #363434;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    }
+    input[type="submit"] {
+    background-color: #343438;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+    
+    input[type="submit"]:hover {
+    background-color: #010e02;
+    }
+.custom-container {
+    width: 400px; /* Adjust the width as needed */
+    background: #eaecec;
+    color: #171616;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 10px; /* Adjust the margin as needed */
+    transition: height 0.3s ease;
+}
+    .custom-container2 {
+        width: 320px; /* Adjust the width as needed */
+        /* Adjust the height as needed */
+        background: linear-gradient(#ffffff, #9dd6f3);
+        color: #171616;
+        padding: 20px;
+        border-radius: 20px;
+        margin-top: 10px; /* Adjust the margin as needed */
+        transition: height 0.3s ease;
+         /* Add transition for smooth height change */
+    }
+
+    .custom-container p {
+        margin: 0;
+    }
+
+    /* Hide the container by default */
+    .custom-container.hidden {
+        height: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    
+/* Adjust as needed for responsiveness */
+.container1  {
+border: 1px solid #868788;
+padding: 20px;
+width: 350px;
+height: 200px;
+overflow: auto;
+border-radius: 20px;
+background-color: #9b9d9e;
+}
+
+
+
+.custom-button i {
+    margin-right: 10px;
+    font-size: 10px;
+}
+
+
+
+.hidden {
+    display: none;
+}
+.form-group {
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+label {
+    display: block;
+    font-weight:lighter;
+    margin-bottom: 5px;
+    font-size: 14px; /* Adjust the font size as needed */
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    opacity: 0.5; /* Adjust the transparency as needed */
+    color: #070606; /* Text color when not focused */
+}
+
+.resume-form{
+    font-size: 20px;
+    font-family: "League Spartan", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    display: flex;
+    color: #747d88;;
+    justify-content: center;
+    
+  }
+
+.placeholder-label {
+position: absolute;
+top: 10px; /* Adjust vertically as needed */
+left: 10px; /* Adjust horizontally as needed */
+pointer-events: none;
+color: #070606; /* Color for the placeholder text */
+transition: all 0.3s ease-in-out;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #4CAF50;
+    color: #000; /* Text color when focused */
+    box-shadow: 0 0 15px rgba(71, 88, 71, 0.5); /* Adjust the shadow as needed */
+}
+
+
+.custom-container1 {
+    display: flex;
+    justify-content: space-between;
+    transition: height 0.3s ease;
+    overflow: hidden;
+}
+.custom-container1 p {
+    margin: 0;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+label {
+    display: block;
+    font-weight:lighter;
+    margin-bottom: 5px;
+    font-size: 14px; /* Adjust the font size as needed */
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    opacity: 0.5; /* Adjust the transparency as needed */
+    color: #070606; /* Text color when not focused */
+}
+.placeholder-label {
+    position: absolute;
+    top: 10px; /* Adjust vertically as needed */
+    left: 10px; /* Adjust horizontally as needed */
+    pointer-events: none;
+    color: #070606; /* Color for the placeholder text */
+    transition: all 0.3s ease-in-out;
+    }
+    .form-control:focus {
+        outline: none;
+        border-color: #4CAF50;
+        color: #000; /* Text color when focused */
+        box-shadow: 0 0 15px rgba(71, 88, 71, 0.5); /* Adjust the shadow as needed */
+    }
+    .custom-container1 {
+        display: flex;
+        justify-content: space-between;
+        transition: height 0.3s ease;
+        overflow: hidden;
+        align-items: center; /* Center content horizontally */
+    }
+
+    .custom-container1 .columns-wrapper {
+        width: 100%; /* Ensure columns take full width */
+    }
+        .custom-container1 p {
+        margin: 0;
+        text-align: center;
+    }
+    .column {
+        width: 30%; 
+        height: 100%;/* Adjust the width as needed */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Adjust the width as needed */
+    }
+    .column2 {
+  width: 100%;
+  height: 100%;
+  /* Adjust the width as needed */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Adjust the width as needed */
+}
+
+.profile-image {
+    border-radius: 50%;
+    width: 100px; /* Adjust the size as needed */
+    height: 100px; /* Adjust the size as needed */
+    object-fit: cover;
+}
+.edit-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    background-color: #4e5050;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.edit-button:hover {
+    background-color: #9b9d9e;
+}
+.columns-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow columns to wrap to the next row if needed */
+    
+    }
+
+    .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        animation: slideIn 0.5s ease-in-out;
+    }
+
+    @keyframes slideIn {
+        from {
+            top: -100%;
+        }
+        to {
+            top: 0;
+        }
+    }
+
+    .container-shadow {
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+        padding: 20px; /* Add padding for spacing */
+        max-height: 650px; /* Set the maximum height before scrollbar appears */
+        overflow-y: auto; /* Add scrollbar when content overflows */
+      
+        /* Style the scrollbar */
+        scrollbar-width: thin; /* Thin scrollbar */
+        scrollbar-color: #a7a6a6 transparent; 
+        /* Scrollbar thumb color and track color */
+      }
+      
+      .container-shadow::-webkit-scrollbar {
+        width: 8px;
+        /* Width of the scrollbar */
+      }
+      
+      .container-shadow::-webkit-scrollbar-track {
+        background: transparent; /* Track color */
+      }
+      
+      .container-shadow::-webkit-scrollbar-thumb {
+        background-color: #888; /* Thumb color */
+        border-radius: 4px; /* Rounded corners */
+      }
+      
+      
+
+      .container-shadow1 {
+        box-shadow: 0px 0px 10px rgba(138, 135, 135, 0.1); /* Add shadow effect */
+        padding: 20px; /* Add padding for spacing */
+        max-height: 630px; /* Set the maximum height before scrollbar appears */
+        overflow-y: auto; /* Add scrollbar when content overflows */
+     
+        /* Style the scrollbar */
+        scrollbar-width: thin; /* Thin scrollbar */
+        scrollbar-color:#a7a6a6 transparent;
+         /* Scrollbar thumb color and track color */
+      }
+      
+      .container-shadow1::-webkit-scrollbar {
+        width: 8px; /* Width of the scrollbar */
+      }
+      
+      .container-shadow1::-webkit-scrollbar-track {
+        background: transparent; /* Track color */
+      }
+      
+      .container-shadow1::-webkit-scrollbar-thumb {
+        background-color: #888; /* Thumb color */
+        border-radius: 4px; /* Rounded corners */
+      }
+
+    @media only screen and (max-width: 600px) {
+        .custom-container {
+            width: 100%; /* Set width to full width on smaller screens */
+            margin-bottom: 10px; /* Adjust spacing between sections */
+        }
+        .columns-wrapper {
+            flex-direction: column; /* Stack columns vertically */
+        }
+        .column {
+            width: 100%; /* Make columns full-width */
+            margin-right: 0; /* Remove margin */
+        }
+        .custom-button {
+            width: 100%; /* Make buttons full-width */
+        }
+        .form-control {
+            width: 100%; /* Make form inputs full-width */
+        }
+    }
+  /* ResumeUI */
+  .left{
+    border:1px solid black;
+    padding: 18px;
+  }
+  .right{
+    border:1px solid black;
+    padding: 18px;
+  }
+  .heading{
+    display: flex;
+    margin-bottom: 15px ;
+    background-color: #f5f7de;
+  }
+  .header-left{
+    text-align: left;
+    padding: 18px;
+    flex: 2;
+  }
+  .header-right{
+    text-align: left;
+    padding: 18px;
+    flex: 1;
+  }
+  .p-info{
+    font-size: 11px;
+  }
+  .resume-subheading{
+    font-size: 17px;
+  }
+  .edu{
+    color: #868686;
+    font-size: 12px;
+    font-weight: 900;
+  }
+  .content-text{
+    font-size: 12px;
+  }
+  .college{
+    font-size: 12px;
+  }
+  .last-heading{
+    font-size: 13px;
+  }
+
+  /*template 3 styles  */
+  .temp3-left{
+    padding: 12px;
+    padding-bottom: 0;
+   text-align: left;
+    border-right: 1px solid black;
+    margin-top: 20px;
+    flex: 0.6;
+  }
+
+  .temp3-right{
+    padding: 8px;
+    padding-bottom: 0;
+    
+    margin-top: 20px;
+    flex: 1;
+    text-align: left;
+  }
+
+  .temp3-header{
+    background-color: #daf5ae;
+  }
+  .temp3-header-left{  
+    text-align: left;
+   
+    padding:28px;
+    flex: 2;
+  }
+  .temp3-header-right{  
+    text-align: left;
+   
+    padding:28px;
+    flex: 1;
+  }
+  .round-image {
+    border-radius: 50%;
+}
+.t3-profile-info{
+  text-align: left;
+  line-height: 33px;
+  font-size: 12px;
+}
+.t3-space{
+  letter-spacing: 3px;
+  text-transform: capitalize;
+}
+.t3-profile{
+  font-size: 17px;
+  letter-spacing: 3px;
+}
+.t3-content{
+  font-size: 12px;
+}
+.t3-ul{
+  line-height: 28px;
+}
+.t3-subheading{
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+ 
+ 
