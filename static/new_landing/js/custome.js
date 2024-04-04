@@ -199,7 +199,7 @@ function addNewProject() {
   var header = document.createElement('div');
   header.classList.add('project-header');
   header.onclick = function () { toggleProject(this) };
-  header.innerHTML = '<i class="fas fa-chevron-down"></i><p><b>Projects ' + projectCount + '</b></p>'+  '<i class="fas fa-trash-alt" onclick="deleteProjectNew(' + projectCount + ')"></i>'; ;
+  header.innerHTML = '<i class="fas fa-chevron-down"></i><p><b>Projects ' + projectCount + '</b></p>'+  '<i class="fas fa-trash-alt" onclick="deleteProject(' + projectCount + ')"></i>'; ;
 
   var content = document.createElement('div');
   content.classList.add('project-content');
