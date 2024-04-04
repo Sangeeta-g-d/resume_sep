@@ -142,6 +142,7 @@ function updateDisplay(educationCount) {
     document.getElementById('displayDegreeFrom' + educationCount).innerText = fromInputValue;
     
     var toInputValue = document.getElementById('to' + educationCount).value;
+    console.log("!!!!!!!!!!!!!!!!!!!!",toInputValue)
     document.getElementById('displayDegreeTo' + educationCount).innerText = toInputValue;
 
     localStorage.setItem("institution1", institutionInputValue);
@@ -295,17 +296,12 @@ function updateProjectName2(projectCount) {
   console.log("toolss",toolsUsedInputValue)
   document.getElementById('displayProjectTools' + projectCount).innerText = 'Tools used: ' + toolsUsedInputValue;
 
-  var linkInputValue = document.getElementById('link' + projectCount).value;
-  document.getElementById('displayProjectLink' + projectCount).innerText = linkInputValue;
-
+ 
   var descriptionInputValue = document.getElementById('description' + projectCount).value;
   document.getElementById('displayProjectDes' + projectCount).innerText = descriptionInputValue;
 
   // Store the updated values in localStorage
-  localStorage.setItem('projectName' + projectCount, projectNameInputValue);
-  localStorage.setItem('toolsUsed' + projectCount, toolsUsedInputValue);
-  localStorage.setItem('link' + projectCount, linkInputValue);
-  localStorage.setItem('description' + projectCount, descriptionInputValue);
+  
 }
 
 
@@ -794,7 +790,7 @@ function updateAchievements() {
   const achievementsSection = document.querySelector('.achievements');
   const achievementList = document.getElementById('achievementList');
   const achievementsText = textarea.value;
-  
+
   // Clear existing list
   achievementList.innerHTML = '';
 
