@@ -212,7 +212,7 @@ function addNewProject() {
   var projectsContainer = document.getElementById('projectsContainer');
   projectsContainer.appendChild(displayDiv);
 
- 
+
 }
 
 
@@ -261,6 +261,7 @@ function saveProject() {
   var projectNameValue = document.getElementById("projectName" + projectCount).value;
   localStorage.setItem("dynamicProjectNameLocal" + projectCount, projectNameValue);
 }
+
 function loadProject() {
   var containerHtml = localStorage.getItem('containerHtml');
   var projectContainerHtml = localStorage.getItem('projectContainerHtml');
@@ -448,7 +449,6 @@ function deleteExperience(experienceCount) {
 // Ensure to call saveExperience after removing the section
 }
 
-
 function updateExperience2(experienceCount) {
   var jobtitleValue2 = document.getElementById('jobtitleNew' + experienceCount).value;
   console.log(jobtitleValue2)
@@ -464,23 +464,26 @@ function updateExperience2(experienceCount) {
   displayElement.style.marginLeft = "0px";
   displayElement.style.fontSize = "12px";
  
-  
-  
   var fromValue2 = document.getElementById('from' + experienceCount).value;
   document.getElementById('displayFrom' + experienceCount).innerText = fromValue2;
   console.log("frommmmmmm",fromValue2)
 
-
-  var toValue2 = document.getElementById('to' + experienceCount).value;
-  var toDisplay = document.getElementById('Display_To' + experienceCount);
+  var toInput = document.getElementById('to' + experienceCount);
+  var toValue2 = toInput.value;
+  var toDisplay = document.getElementById('displayTo' + experienceCount);
   if (toDisplay) {
     toDisplay.innerText = toValue2;
   }
+
+  // Call handlePresentCheckboxExperience to update accordingly
+  handlePresentCheckboxExperience(experienceCount);
 }
+
 function handlePresentCheckboxExperience(experienceCount) {
 console.log("gggggggggggggg")
 var toInput = document.getElementById("to" + experienceCount);
-var toContainer = document.getElementById("Display_To" + experienceCount);
+var toContainer = document.getElementById("displayTo" + experienceCount);
+
 
 if (document.getElementById("present" + experienceCount).checked) {
   toInput.disabled = true;
