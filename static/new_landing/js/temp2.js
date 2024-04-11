@@ -373,6 +373,7 @@ function education() {
         '<label for="' + fromInputId + '" style="margin-right: 10px;">From:</label>' +
         '<input type="month" id="' + fromInputId + '" name="' + fromInputId + '" class="form-control" style="height: 35px;" oninput="updateExperience2(' + experienceCount + ')">' +
         '</div>' +
+        
         '<div class="form-group">' +
         '<label for="' + toInputId + '" style="margin-right: 10px;">To:</label>' +
         '<input type="month" id="' + toInputId + '" class="form-control" name="' + toInputId + '" style="height: 35px;" onchange="updateExperience2(' + experienceCount + ')">' +
