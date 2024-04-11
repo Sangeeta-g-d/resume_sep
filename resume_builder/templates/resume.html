@@ -7,6 +7,10 @@
 </head>
 <body>
     <h1>Extracted Resume Data</h1>
-    <pre>{{ extracted_text }}</pre>
+    <div>
+        {% for field in extracted_fields %}
+            <p>{{ field }}</p>
+        {% endfor %}
+    </div>
 </body>
 </html>

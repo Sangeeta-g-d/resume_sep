@@ -30,7 +30,7 @@ def upload_resume(request):
     if request.method == 'POST':
         resume = request.FILES['resume']
         Resume.objects.create(resume_file=resume)
-        return HttpResponse("Resume uploaded successfully!")
+        return redirect("extract_text")
     return render(request, 'upload.html')
 
 def extract_text(request):
@@ -44,4 +44,7 @@ def extract_text(request):
     for img in images:
         extracted_text += pytesseract.image_to_string(img)
 
-    return render(request, 'resume.html', {'extracted_text': extracted_text})
+    # Split the extracted text into separate fields
+    split_text = extracted_text.split('\n')  # Assuming each field is separated by a new line
+
+    return render(request, 'resume.html', {'extracted_fields': split_text})
