@@ -589,6 +589,19 @@
                             <!-- Content for the second half of the page -->
                             <div class="container-shadow1">
                               <button  id="downloadBtn">Download as PDF</button>
+                              <button >Upload Resume</button>
+
+                              <div id="uploadPopup" class="popup">
+                                <div class="popup-content">
+                                    <span class="close" onclick="closePopup()">&times;</span>
+                                    <h2>Upload Resume</h2>
+                                    <input type="file" accept=".pdf" id="resumeInput">
+                                    <button onclick="uploadResume()">Upload</button>
+                                </div>
+                            </div>
+                            <script>
+                              
+                            </script>
                             <div class="content_wrapper">
                               <div id="dynamicContent">
                                 

@@ -7,4 +7,6 @@ urlpatterns = [
     path('temp1',views.temp1,name='temp1'),
     path('temp3',views.temp3,name='temp3'),
     path('temp2',views.temp2,name='temp2'),
+    path('', views.upload_resume, name='upload_resume'),
+    path('extract/', views.extract_text, name='extract_text'),
 ]
