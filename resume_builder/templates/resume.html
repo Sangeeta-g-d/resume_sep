@@ -7,10 +7,75 @@
 </head>
 <body>
     <h1>Extracted Resume Data</h1>
-    <div>
-        {% for field in extracted_fields %}
-            <p>{{ field }}</p>
-        {% endfor %}
+    
+    
+   
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+           
+            <input type="text" name="skills" placeholder="Skills" value='{{extracted_data.skills | join:", " }}'>
+            
+            
+            <input type="text" name="summary" placeholder="Summary" value="{{ extracted_data.summary }}">
+            
+            <button type="submit">submit</button>
+        </form>
     </div>
+    <h2>Skills</h2>
+    
+   
+        <P>{{extracted_data.skills | join:", "}}</P>
+    
+
+<h2>Summary</h2>
+
+    
+        <P>{{ extracted_data.summary }}</P>
+        <h2>projects</h2>
+
+    
+        <P>{{ extracted_data.projects }}</P>
+    
+        <h2>Languages</h2>
+        <P>{{ extracted_data.languages | join:", " }}</P>
+        
+    
+    <h2>Education</h2>
+    
+        
+            <P>{{extracted_data.education }}</P>
+            <h2>INTERNSHIP</h2>
+    
+        
+            <P>{{ extracted_data.internship}}</P>
+        
+    
+
+    <h2>Experience</h2>
+   
+        {% for exp in extracted_data.experience %}
+            <p>{{ exp }}</p>
+        {% endfor %}
+
+        <h2>Achievements</h2>
+   
+        {% for achievements in extracted_data.achievements %}
+            <p>{{ achievements }}</p>
+        {% endfor %}
+    
+
+    <h2>Contact</h2>
+    
+        {% for contact_info in extracted_data.contact %}
+            <P>{{ contact_info }}</P>
+        {% endfor %}
+    
+    <h2>certifications</h2>
+    
+        {% for certifications_info in extracted_data.certifications %}
+            <P>{{ certifications_info }}</P>
+        {% endfor %}
+    
 </body>
 </html>
