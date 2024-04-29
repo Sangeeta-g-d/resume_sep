@@ -1,0 +1,98 @@
+.top-header{
+    display: flex;
+    margin-bottom: 10px;
+}
+.black{
+    height: 20px;
+    flex: 2;
+    background-color: rgb(34, 34, 34);
+    margin-bottom: 20px;
+}
+.gray{
+    height: 20px;
+    flex: 1;
+    background-color: rgb(169, 169, 169);
+    margin-bottom: 20px;
+}
+.personal{
+    display: flex;
+   
+    border-bottom: 0.01rem solid #3c3c3c;
+    
+}
+.img-section, .name, .contact-info{
+    flex: 1;
+    margin-bottom: 25px;
+}
+.top-p{
+    margin: 0px;
+    font-family: "GFS Didot", serif;
+    font-style: normal;
+    font-size: 12px;
+   text-align: start;
+   margin-bottom: 5px;
+}
+.name-h{
+    font-size: 34px;
+    font-family: "GFS Didot", serif;
+    font-style: normal;
+    font-weight: 800;
+}
+.round-image {
+    width: 100px; /* Adjust the size as desired */
+    height: 100px; /* Adjust the size as desired */
+    border-radius: 50%; /* Makes the image round */
+}
+.main-section{
+    display: flex;
+    padding: 20px;
+    justify-content: end;
+}
+.main-h{
+    font-size: 20px; 
+    font-family: "GFS Didot", serif;
+    font-style: normal;
+    font-weight: 400;
+}
+.temp-left-side{
+    flex: 2;
+    text-align: start;
+    padding-right: 22px;
+    border-right: 0.1rem solid #3c3c3c;
+}
+.temp-right-side{
+    flex: 1;
+    text-align: start;
+    margin-left: 20px;
+}
+.main-p{
+   
+    font-family: "GFS Didot", serif;
+    font-style: normal;
+    font-size: 13px;
+   margin: 0px;
+}
+.sections{
+    margin-bottom: 30px;
+}
+.sub-h{
+    font-family: "GFS Didot", serif;
+    font-style: normal;
+    font-size: 16px;   
+}
+.edu-h{
+    font-family: "GFS Didot", serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;   
+}
+.c-name{
+    font-family: "GFS Didot", serif;
+    font-style: normal;
+    font-size: 14px;
+}
+.skill-list{
+    font-family: "GFS Didot", serif;
+    font-style: normal;
+    font-size: 14px;
+}

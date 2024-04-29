@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap"
     rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
   <!-- Icon Font Stylesheet -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
@@ -101,20 +102,20 @@
         /* Make form inputs full-width */
       }
     }
-    #downloadBtn {
-  background-color: #fc081f ; /* Green */
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 15px;
- 
-}
+    @media print {
+    /* Define A4 size */
+    @page {
+      size: A4;
+    }
+
+    /* Set fixed dimensions for the content */
+    .content_wrapper {
+      width: 210mm; /* A4 width */
+      height: 297mm; /* A4 height */
+      overflow: hidden; /* Hide overflow content */
+    }
+  }
+  
   </style>
 </head>
 
@@ -445,10 +446,15 @@
           
             <!-- Content for the second half of the page -->
             <div class="container-shadow1">
-              <button  id="downloadBtn">Download as PDF</button>
+              <div class="btncontainer" style="display: flex; justify-content: space-around;">
+              <button class="d-btn" id="downloadBtn">Download as PDF</button>
+              <button class="d-btn" id="uploadresume">Upload Resume</button>
+              
+            </div>
               <br>
               <div id="temp1" class="content_wrapper">
-                <div id="dynamicContent">
+                
+                <div id="dynamicContent" >
                   <div>
                   <div class="heading">
                     <div class="header-left">
@@ -459,7 +465,7 @@
                     <div class="header-right">
                       <p class="p-info"><i class="fas fa-phone"></i> <span id="Display_Phoneno">
                           9876564534 </span><br> <i class="far fa-envelope"></i> <span
-                          id="Display_Email">abhi56@gmail.com </span><br> <i class="fas fa-map-marker-alt"></i> Hubli
+                          id="Display_Email">abhi56@gmail.com </span><br>
                         <br>
 
                       </p>
@@ -558,8 +564,18 @@
                 </div>
                 </div>
               </div>
+              <script>
+                // Check if content exceeds A4 size
+                window.addEventListener('beforeprint', function () {
+                  var contentWrapper = document.querySelector('.content_wrapper');
+                  var wrapperHeight = contentWrapper.scrollHeight;
+                  if (wrapperHeight > 297) { // 297mm is A4 height
+                    alert("The content exceeds the A4 size. Please optimize the content for printing.");
+                  }
+                });
+              </script>
             </div>
-
+           
             <script>
               document.getElementById("downloadBtn").addEventListener("click", function() {
                   // Select the element containing the content you want to download
@@ -593,7 +609,229 @@
 
 
 
+  <script>
+    // Function to fetch and update degree information
+    function updateDegreeInfo() {
+        // Make an AJAX request to fetch the updated degree information
+        fetch('/get_degree_info/')
+            .then(response => response.json())
+            .then(data => {
+                // Update the content of the displayDegree element
+                document.getElementById('displayDegree').innerText = data.degree;
+            })
+            .catch(error => {
+                console.error('Error fetching degree information:', error);
+            });
+    }
 
+    function updateCompanyInfo() {
+// Make an AJAX request to fetch the updated company information
+fetch('/get_company_info/')
+  .then(response => response.json())
+  .then(data => {
+      // Update the content of the displayDegree element, wrapping the company name in <b> tag for bold formatting
+      document.getElementById('Display_Cname').innerHTML = '<b>' + data.companyname + '</b>';
+  })
+  .catch(error => {
+      console.error('Error fetching company information:', error);
+  });
+}
+
+    function updateFnameInfo() {
+// Make an AJAX request to fetch the updated degree information
+fetch('/get_first_name_info/')
+  .then(response => response.json())
+  .then(data => {
+      // Capitalize the first letter of the fetched first name
+      const capitalizedFname = data.fname.charAt(0).toUpperCase() + data.fname.slice(1);
+      
+      // Update the content of the displayDegree element with the capitalized first name
+      document.getElementById('Display_Fname').innerText = capitalizedFname;
+  })
+  .catch(error => {
+      console.error('Error fetching first name information:', error);
+  });
+}
+
+
+    function updateLnameInfo() {
+        // Make an AJAX request to fetch the updated degree information
+        fetch('/get_last_name_info/')
+        .then(response => response.json())
+  .then(data => {
+      // Capitalize the first letter of the fetched first name
+      const capitalizedLname = data.lname.charAt(0).toUpperCase() + data.lname.slice(1);
+      
+      // Update the content of the displayDegree element with the capitalized first name
+      document.getElementById('Display_Lname').innerText = capitalizedLname;
+  })
+  .catch(error => {
+      console.error('Error fetching first name information:', error);
+  });
+    }
+
+
+    function updateEmailInfo() {
+        // Make an AJAX request to fetch the updated degree information
+        fetch('/get_email_info/')
+            .then(response => response.json())
+            .then(data => {
+                // Update the content of the displayDegree element
+                document.getElementById('Display_Email').innerText = data.email;
+            })
+            .catch(error => {
+                console.error('Error fetching degree information:', error);
+            });
+    }
+    function updateLinkedinInfo() {
+        // Make an AJAX request to fetch the updated degree information
+        fetch('/get_linkedin_info/')
+            .then(response => response.json())
+            .then(data => {
+                // Update the content of the displayDegree element
+                document.getElementById('Display_lnkedin').innerText = data.linkedin;
+            })
+            .catch(error => {
+                console.error('Error fetching degree information:', error);
+            });
+    }
+    function updatePhone_noInfo() {
+        // Make an AJAX request to fetch the updated degree information
+        fetch('/get_phone_no_info/')
+            .then(response => response.json())
+            .then(data => {
+                // Update the content of the displayDegree element
+                document.getElementById('Display_Phoneno').innerText = data.phone_no;
+            })
+            .catch(error => {
+                console.error('Error fetching degree information:', error);
+            });
+    }
+
+    function updateProjectInfo() {
+        // Make an AJAX request to fetch the updated degree information
+        fetch('/get_project_info/')
+            .then(response => response.json())
+            .then(data => {
+                // Update the content of the displayDegree element
+                document.getElementById('displayProjectName').innerText = data.project;
+            })
+            .catch(error => {
+                console.error('Error fetching project information:', error);
+            });
+    }
+
+    function updateDesignationInfo() {
+        // Make an AJAX request to fetch the updated degree information
+        fetch('/get_designation_info/')
+            .then(response => response.json())
+            .then(data => {
+                // Update the content of the displayDegree element
+                document.getElementById('Display_Designation').innerText = data.designation;
+            })
+            .catch(error => {
+                console.error('Error fetching degree information:', error);
+            });
+    }
+
+    function updateUniversityInfo() {
+        // Make an AJAX request to fetch the updated degree information
+        fetch('/get_university_info/')
+            .then(response => response.json())
+            .then(data => {
+                // Update the content of the displayDegree element
+                document.getElementById('displayCollege').innerText = data.university;
+            })
+            .catch(error => {
+                console.error('Error fetching degree information:', error);
+            });
+    }
+
+    function updateLanguagesInfo() {
+        // Make an AJAX request to fetch the updated degree information
+        fetch('/get_languages_info/')
+            .then(response => response.json())
+            .then(data => {
+              const languagesArray = data.languages.split(',');
+              const languagesList = document.getElementById('languageList');
+              languagesList.innerHTML = '';
+              languagesArray.forEach(language => {
+             
+              const listItem = document.createElement('li');
+             
+              listItem.textContent = language.trim(); // Trim extra whitespace
+             
+              languagesList.appendChild(listItem);
+          });
+        })
+      .catch(error => {
+          console.error('Error fetching skills information:', error);
+      });
+}
+           
+
+    function updateSkillsInfo() {
+  // Make an AJAX request to fetch the updated skills information
+  fetch('/get_skills_info/')
+      .then(response => response.json())
+      .then(data => {
+          // Split the skills text by commas
+          const skillsArray = data.skills.split(',');
+          // Get the skillsList element
+          const skillsList = document.getElementById('skillsList');
+          // Clear the previous content of the skillsList element
+          skillsList.innerHTML = '';
+          // Iterate over the skillsArray to create list items
+          skillsArray.forEach(skill => {
+              // Create a new list item element
+              const listItem = document.createElement('li');
+              // Set the text content of the list item to the current skill
+              listItem.textContent = skill.trim(); // Trim extra whitespace
+              // Append the list item to the skillsList element
+              skillsList.appendChild(listItem);
+          });
+      })
+      .catch(error => {
+          console.error('Error fetching skills information:', error);
+      });
+}
+    function updateSummaryInfo() {
+  // Make an AJAX request to fetch the updated summary information
+  fetch('/get_summary_info/')
+      .then(response => response.json())
+      .then(data => {
+          // Split the summary text into lines
+          const summaryLines = data.summary.split('\n');
+          // Initialize an empty string to store the continuous summary
+          let continuousSummary = '';
+          // Concatenate each summary line with a space to form a continuous paragraph
+          for (let i = 0; i < summaryLines.length; i++) {
+              continuousSummary += summaryLines[i] + ' ';
+          }
+          // Update the content of the displaySummary element with the continuous paragraph
+          document.getElementById('Display_Summary').innerText = continuousSummary;
+      })
+      .catch(error => {
+          console.error('Error fetching summary information:', error);
+      });
+}
+
+
+    // Call the function when the page loads
+    document.addEventListener('DOMContentLoaded', updateDegreeInfo);
+    document.addEventListener('DOMContentLoaded', updateEmailInfo);
+    document.addEventListener('DOMContentLoaded', updatePhone_noInfo);
+    document.addEventListener('DOMContentLoaded', updateLinkedinInfo);
+    document.addEventListener('DOMContentLoaded', updateFnameInfo);
+    document.addEventListener('DOMContentLoaded', updateLnameInfo);
+    document.addEventListener('DOMContentLoaded', updateDesignationInfo);
+    document.addEventListener('DOMContentLoaded', updateSkillsInfo);
+    document.addEventListener('DOMContentLoaded', updateSummaryInfo);
+    document.addEventListener('DOMContentLoaded', updateUniversityInfo);
+    document.addEventListener('DOMContentLoaded', updateCompanyInfo);
+    document.addEventListener('DOMContentLoaded', updateLanguagesInfo);
+  
+</script>
 
 
   <!-- Footer Start -->
@@ -606,7 +844,39 @@
     </div>
   </div>
   <!-- Footer End -->
-
+  <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="uploadModalLabel">Upload Resume</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="resumeForm" method="post"  enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="resumeInput">Choose File</label>
+                <input type="file" class="form-control-file" id="resumeInput" name="resume">
+            </div>
+            <button type="submit" class="btn btn-danger">Upload</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  <script>
+    $(document).ready(function(){
+      $('#uploadresume').click(function(){
+        $('#uploadModal').modal('show');
+      });
+    });
+  </script>  
 
 
 

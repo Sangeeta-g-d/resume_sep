@@ -54,28 +54,27 @@
 
     <h2>Experience</h2>
    
-        {% for exp in extracted_data.experience %}
-            <p>{{ exp }}</p>
-        {% endfor %}
+       
+            <p>{{extracted_data.experience }}</p>
 
         <h2>Achievements</h2>
    
-        {% for achievements in extracted_data.achievements %}
-            <p>{{ achievements }}</p>
-        {% endfor %}
+       
+            <p>{{ extracted_data.achievements }}</p>
+        
     
 
     <h2>Contact</h2>
     
-        {% for contact_info in extracted_data.contact %}
-            <P>{{ contact_info }}</P>
-        {% endfor %}
+        
+            <P>{{ extracted_data.contact }}</P>
+        
     
     <h2>certifications</h2>
     
-        {% for certifications_info in extracted_data.certifications %}
-            <P>{{ certifications_info }}</P>
-        {% endfor %}
+        
+            <P>{{ extracted_data.certifications }}</P>
+        
     
 </body>
 </html>

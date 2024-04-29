@@ -1,0 +1,549 @@
+def temp1(request):
+    if request.method == 'POST':
+        resume = request.FILES['resume']
+        
+        Resume.objects.create(resume_file=resume)
+        resume = Resume.objects.last()  
+        resume_path = resume.resume_file.path
+
+        # Convert PDF to image
+        images = convert_from_path(resume_path)
+
+        extracted_text = ""
+        for img in images:
+            extracted_text += pytesseract.image_to_string(img)
+
+        # Perform sentiment analysis on the extracted text using VADER
+        analyzer = SentimentIntensityAnalyzer()
+        sentiment = analyzer.polarity_scores(extracted_text)
+
+        # Split the extracted text into separate lines
+        split_text = extracted_text.split('\n')
+
+        # Organize the data into separate categories
+        data = {
+            'sentiment': sentiment,
+            'certifications': [],
+            'skills': [],
+            'experience': [],
+            'education': [],
+            'contact': [],
+            'summary': [],
+            'about': [],
+            'achievements': [],
+            'languages': [],
+            'projects':[],
+            'internship':[],
+        }
+       
+        current_category = None
+        experience_list=[]
+        for line in split_text:
+            line = line.strip()
+            if line.upper() in ['CERTIFICATIONS', 'SKILLS', 'EDUCATION', 'CONTACT', 'SUMMARY', 'ABOUT', 'ACHIEVEMENTS',
+                                'LANGUAGES','PROJECTS','INTERNSHIP']:
+                current_category = line.upper()
+            elif line.upper().startswith('EXPERIENCE') or line.upper().startswith('PROFESSIONAL EXPERIENCE'):
+                current_category = 'EXPERIENCE'
+                ex=current_category
+                
+            elif line.upper().startswith('SUMMARY') or line.upper().startswith('PROFILE SUMMARY'):
+                current_category = 'SUMMARY'
+            elif line.upper().startswith('LANGUAGES') or line.upper().startswith('LANGUAGES KNOWN'):
+                current_category = 'LANGUAGES'
+            elif line.upper().startswith('SKILLS') or line.upper().startswith('KEY SKILLS'):
+                current_category = 'SKILLS'
+
+            elif current_category:
+                line = re.sub(r'[^\w\s]', '', line)
+                if current_category == 'EXPERIENCE':
+    # Regular expression pattern to match start and end dates (month year - month year format)
+                    date_pattern = r'\b(?:jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|jun(?:e)?|jul(?:y)?|aug(?:ust)?|sep(?:tember)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)\s+\d{4}\b'
+    # Extract start and end dates using regular expression
+                    dates = re.findall(date_pattern, line, flags=re.IGNORECASE)
+    # Initialize start_date and end_date variables
+                    start_date = None
+                    end_date = None
+                    if len(dates) == 2:
+                        start_date, end_date = dates
+        # If there is a previous line, concatenate it with the current line
+                        if experience_list:
+                            prev_designation = experience_list[-1]['designation']
+            # Concatenate the previous designation with the current line
+                            designation = prev_designation + ' ' + line.split(start_date)[0].strip()
+            # Extract company name from the previous line
+                            company_name = experience_list[-1].get('company_name', '')
+                        else:
+            # No previous line, extract designation from the current line only
+                            designation = line.split(start_date)[0].strip()
+            # Initialize company name as an empty string
+                            company_name = ''
+        
+        # Append parsed experience details to experience_list
+                        experience_list.append({'company_name': company_name, 'start_date': start_date, 'end_date': end_date, 'designation': designation})
+                    else:
+        # If the line doesn't contain start and end dates, consider it as the company name
+                        company_name = line.strip()
+        # Update the company name for the current entry in the experience list
+                        if experience_list:
+                            experience_list[-1]['company_name'] = company_name
+
+
+                else:
+    # Append line to the current category list
+                    data[current_category.lower()].append(line)
+
+
+        # Join skills and summary lists into single strings
+        data['summary'] = '\n'.join(data['summary'])
+        data['projects'] = '\n'.join(data['projects'])
+        data['education'] = '\n'.join(data['education'])
+        data['internship'] = '\n'.join(data['internship'])
+        data['experience'] = '\n'.join(data['experience'])
+        print("hhhhhhhhhhhhh",data['experience'] )
+        data['contact'] = '\n'.join(data['contact'])
+        data['certifications'] = '\n'.join(data['certifications'])
+        data['skills'] = ', '.join(data['skills'])
+        data['languages'] = ', '.join(data['languages'])
+
+       
+        resume_details = ResumeDetails.objects.create(
+            summary=data['summary'],
+            skills=data['skills'],
+            projects=data['projects'],
+            languages=data['languages'],
+            education=data['education'],
+            internship=data['internship'],
+            experience=data['experience'],
+            contact=data['contact'],
+            certifications=data['certifications']
+        )
+        data1 = ResumeDetails.objects.last()
+        exp=data1.experience
+        resume_id=data1.id
+        # Extracted text for education section
+        # Extracted text for education section
+        education_lines = data['education'].split('\n')
+
+# Process only the first three lines for education details
+        if len(education_lines) >= 3:
+            college_name = education_lines[0]
+            university = education_lines[1]
+            year_of_passing = education_lines[2]
+
+    # Create EducationDetails object and save it
+        EducationDetails.objects.create(
+        resume_id_id=resume_id,
+        college_name=college_name,
+        university=university,
+        year_of_passing=year_of_passing
+    )
+
+
+# Update experience list with company names and save each entry
+        for experience in experience_list:
+            experience['designation'] = experience.get('designation', 'Add Your Designation')
+            experience['start_date'] = experience.get('start_date', 'Add Your Start date')
+            experience['end_date'] = experience.get('end_date', 'Add Your End date')
+            ExperienceDetails.objects.create(
+            resume_id_id=resume_id,
+            designation=experience['designation'],
+            start_date=experience['start_date'],
+            end_date=experience['end_date']
+    )
+
+
+        for experience in experience_list:
+            
+            print("fffffffffffff")
+            print("start_date",experience['start_date'])
+            print("end_date:",experience['end_date'])
+            print("designation",experience['designation'])
+            print("company_name",experience['company_name'])
+           
+    
+        
+        print('experience:',exp)
+        # Update experience list with company names
+        
+        # Passing extracted data to template context
+        context = {
+            'data1': data1,
+           
+        }
+        
+    return render(request, 'temp1.html')
+
+
+
+
+
+    *************** working *******************
+
+
+
+
+    def temp1(request):
+    id=request.user.id
+    user_details=NewUser.objects.filter(id=id)
+    for x in user_details:
+        first_name=x.first_name
+    if request.method == 'POST':
+        resume = request.FILES['resume']
+        Resume.objects.create(resume_file=resume)
+        resume = Resume.objects.last()  
+        resume_path = resume.resume_file.path
+        # Convert PDF to image
+        images = convert_from_path(resume_path)
+        extracted_text = ""
+        for img in images:
+            extracted_text += pytesseract.image_to_string(img)
+        # Perform sentiment analysis on the extracted text using VADER
+        analyzer = SentimentIntensityAnalyzer()
+        sentiment = analyzer.polarity_scores(extracted_text)
+        # Split the extracted text into separate lines
+        split_text = extracted_text.split('\n')
+        # Organize the data into separate categories
+        data = {
+            'sentiment': sentiment,
+            'certifications': [],
+            'skills': [],
+            'experience': [],
+            'education': [],
+            'contact': [],
+            'summary': [],
+            'about': [],
+            'achievements': [],
+            'languages': [],
+            'projects':[],
+            'internship':[],
+            'language':[],
+        }
+       
+        current_category = None
+        experience_list=[]
+        for line in split_text:
+            line = line.strip()
+            if line.upper() in ['CERTIFICATIONS', 'SKILLS', 'EDUCATION', 'CONTACT', 'SUMMARY', 'ABOUT', 'ACHIEVEMENTS',
+                                'LANGUAGES','PROJECTS','INTERNSHIP','LANGUAGE']:
+                current_category = line.upper()
+            elif line.upper().startswith('EXPERIENCE') or line.upper().startswith('PROFESSIONAL EXPERIENCE'):
+                current_category = 'EXPERIENCE'
+                ex = current_category
+            
+            elif line.upper().startswith('EXPERIENCE') or line.upper().startswith('WORK EXPERIENCE'):
+                current_category = 'EXPERIENCE'
+                ex = current_category
+            elif line.upper().startswith('SUMMARY') or line.upper().startswith('PROFILE SUMMARY'):
+                current_category = 'SUMMARY'
+            elif line.upper().startswith('ABOUT ME') or line.upper().startswith('PROFILE'):
+                current_category = 'SUMMARY'
+            
+            elif line.upper().startswith('LANGUAGES') or line.upper().startswith('LANGUAGES KNOWN'):
+                current_category = 'LANGUAGES'
+            elif line.upper().startswith('SKILLS') or line.upper().startswith('KEY SKILLS'):
+                current_category = 'SKILLS'
+            elif line.upper().startswith('TECHNICAL SKILLS') or line.upper().startswith('EXPERTISE'):
+                current_category = 'SKILLS'
+            elif current_category:
+                line = re.sub(r'[^\w\s]', '', line)
+                data[current_category.lower()].append(line)
+
+        # Join skills and summary lists into single strings
+        data['summary'] = '\n'.join(data['summary'])
+        data['projects'] = '\n'.join(data['projects'])
+        data['education'] = '\n'.join(data['education'])
+        data['internship'] = '\n'.join(data['internship'])
+        data['experience'] = '\n'.join(data['experience'])
+        data['contact'] = '\n'.join(data['contact'])
+        data['certifications'] = '\n'.join(data['certifications'])
+        data['skills'] = ', '.join(data['skills'])
+        data['languages'] = ', '.join(data['languages'])
+
+        resume_details = ResumeDetails.objects.create(
+            user_id_id=id,
+            summary=data['summary'],
+            skills=data['skills'],
+            projects=data['projects'],
+            languages=data['languages'],
+            education=data['education'],
+            internship=data['internship'],
+            experience=data['experience'],
+            contact=data['contact'],
+            certifications=data['certifications']
+        )
+        data1 = ResumeDetails.objects.last()
+        exp=data1.experience
+        resume_id=data1.id
+        # Extracted text for education section
+        education_lines = data['education'].split('\n')
+        degree = ""
+        university = ""
+        year_of_passing = ""
+        # Keywords for identifying degree
+        degree_keywords = ["degree", "bachelor", "master", "diploma", "puc","business","Btech"]
+        # Regular expression to match year and optionally month
+        year_regex = r'\b\d{4}\b'  
+        for line in education_lines:
+            match = re.search(year_regex, line)
+            if match:
+                year_of_passing = match.group()
+                month_match = re.search(r'(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)', line, re.IGNORECASE)
+                if month_match:
+                    year_of_passing += " " + month_match.group()
+            # Check if line contains keywords for degree
+            elif any(keyword in line.lower() for keyword in degree_keywords):
+                degree = line
+            # Check if line contains keywords "college" or "university"
+            elif "college" in line.lower() or "university" in line.lower():
+                university = line
+
+        EducationDetails.objects.create(
+        user_id_id=id,
+        degree=degree,
+        university=university,
+        year_of_passing=year_of_passing
+    )
+        experience_lines = data['experience'].split('\n')
+        # Initialize variables
+        designation = ""
+        company_name = ""
+        start_date = ""
+        end_date = ""
+
+        # Keywords for identifying designation and company name
+        designation_keywords = ["Executive Secretary", "Secretary", "Assistant", "software", "engineer", "analyst", "agent",'manager']
+        company_keywords = ["pvt ltd", "Company", "limited", "corp"]
+        date_regex = r'\b(?:\d{4}[-/]\d{2}[-/]\d{2}|\w+\s\d{4})\b'  # Matches YYYY-MM-DD, YYYY/MM/DD, MMM YYYY
+        for line in experience_lines:
+            if any(keyword in line for keyword in designation_keywords):
+                designation = line.strip()
+            if any(keyword in line for keyword in company_keywords):
+                company_name = line.strip()
+            match = re.search(date_regex, line)
+            if match:
+                if not start_date:
+                    start_date = match.group()
+                else:
+                    end_date = match.group()
+
+        ExperienceDetails.objects.create(
+    user_id_id=id,
+    designation=designation,
+    company_name=company_name,
+    start_date=start_date,
+    end_date=end_date
+)
+
+        education_data = EducationDetails.objects.last()
+        exp_data = ExperienceDetails.objects.last()
+        degreeinfo = education_data.degree
+    
+        # Passing extracted data to template context
+        context = {
+            'data1': data1,
+            'degreeinfo':degreeinfo,
+           'education_data':education_data,
+           'user_details': user_details,
+           'exp_data':exp_data,
+        }
+        
+    return render(request, 'temp1.html')
+
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> R E S U M E2</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+        <!--Custom CSS-->
+        <style>
+            *{
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+            }
+            body{
+                font-family: arial, "Times New Roman", Times, serif;
+                font-size: 22px;
+            }
+            .figure img{
+                border-radius: 50%;
+                width: 100%;
+                height:auto;
+                object-fit: cover;
+            }
+            h3{
+                border-bottom: 2px solid;
+                font-size: 18px;
+                margin-bottom: 15px;
+            }
+            .candidate{
+                font-family: impact;
+                letter-spacing: 4px;
+                color: grey;
+                margin:0;
+            }
+            :is(.role,.project) + p{
+                color: grey;
+            }
+            :is(.role,.project){
+                font-size: 18px;
+            }
+            p{
+                margin-bottom: 2px;
+    
+            }
+            p,li{
+                font-size: 17px;
+                line-height:26px;
+            }
+            ul li{
+                margin-left: -35px;
+    
+            }
+            .contact ul{
+                list-style-type: none;
+            }
+            .contact ul li{
+                margin-left: -50px;
+    
+            }
+            :is(.contact, .skills, .hobbies) ul li{
+                margin-bottom: 8px;
+                font-size: 18px;
+            }
+            /*h3 {
+                text-align: center;
+                background: linear-gradient(to right, red, orange, red, green, blue, indigo, violet);
+                background-clip: text;
+                color: transparent;
+                font-family: impact;
+                text-decoration: underline black;
+            }*/
+            .col-md-12 {
+            flex: 0 0 auto;
+            width: 100%;
+            padding: 30px;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="container p-2">
+            <div class="row ">
+                <div class="col-md-3 offset-md-1 border text-white" style="background: rgb(128, 128, 128,1); border-radius: 8px;">
+                    <div class='row text-center pt-3'>
+                        <div class="col ">
+                            <figure class="figure ">
+                                    <img src="https://picsum.photos/150" class="figure-img  img-fluid " alt="Candidate Image." title="Candidate Photo.">
+                                </figure>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class='col-md-12'>
+                            <!--Contact Info-->
+                            <div class="contact">
+                                <h3><b>CONTACT INFO</b> </h3>
+                                <ul >
+                                    <li > <i class="fa-solid fa-mobile-screen-button"></i> &nbsp; +91-9876543210</li>
+                                    <li > <i class="fa-regular fa-envelope"> </i> &nbsp; krish@gmail.com</li>
+                                    <li > <i class="fa-brands fa-linkedin"></i>  &nbsp; in.com/in/dianas.scott</li>
+                                </ul>
+                            </div>
+                        </div>
+    
+                        <div class='col-md-12'>
+                            <!--IT SKILLS-->
+                            <div class="skills">
+                                <h3> <b> SKILLS</b></h3>
+                                <ul >
+                                    <li  >Teamwork</li>
+                                    <li  >Leadership</li>
+                                    <li  >Flexibility</li>
+                                    <li >Empathy</li>
+                                </ul>
+                            </div>
+                        </div>
+    
+                        <div class='col-md-12'>
+                            <!--OTHER SKILLS/HOBBIES-->
+                            <div class="hobbies">
+                                <h3> <b>LANGUAGES KNOWN</b></h3>
+                                <ul >
+                                    <li > Kannada</li>
+                                    <li > Hindi</li>
+                                    <li > English</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-md-6 order-md-last order-first ml-3 mt-md-0 mt-2 border border-radius: 8px;">
+                    <br>
+                    <h2 class="candidate m-0  ">Krishna Rathnayake</h2>
+                    <div id="profile ">
+                        <h3 style="margin-top: 20px;"><b>PROFILE</b></h3>
+                        <p class="profile-desc">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id justo auctor, suscipit nulla nec, finibus elit. Mauris dapibus velit et dolor consectetur, sit amet placerat neque dapibus. 
+                        </p>
+    
+                    </div>
+                    
+                    <div class="row mt-3">
+                        <div class="col-md-12" id="experience">
+                            <h3><b> WORK EXPERIENCE</b></h3>
+                            <p class="role"><b> Full Stack Web Developer</b></p>
+                            <p> XYZ corporation-Anytown, India 2015-Present </p>
+                            <ul >
+                                <li >
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                </li>
+                                <li >
+                                    Sed id justo auctor, suscipit nulla nec, finibus elit.
+                                    Sed id justo auctor, suscipit nulla nec, finibus elit
+                                </li>
+                                <li >
+                                    finibus elit. Mauris dapibus velit et dolor consectetur, sit amet placerat neque dapibus. 
+                                </li>
+                                <li >
+                                    finibus elit. Mauris dapibus velit et dolor consectetur, sit amet placerat neque dapibus. 
+                                </li>
+                            </ul>
+                        </div>    
+                        <div class="col-md-12" id="project">
+                            <h3><b> PROJECTS </b></h3>
+                            <p class="project"><b> Projects Title/Small Note </b></p>
+                            <p> XYZ-Company/Corporation/Agency, USA 2014 - 2016</p>
+                            
+                            <ul >
+                                <li >
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                </li>
+                                <li >
+                                    Sed id justo auctor, suscipit nulla nec, finibus elit.
+                                    Sed id justo auctor, suscipit nulla nec, finibus elit
+                                </li>
+                                <li >
+                                    finibus elit. Mauris dapibus velit et dolor consectetur, sit amet placerat neque dapibus. 
+                                </li>
+                                <li >
+                                    finibus elit. Mauris dapibus velit et dolor consectetur, sit amet placerat neque dapibus. 
+                                </li>
+                                <li >
+                                    finibus elit. Mauris dapibus velit et dolor consectetur. 
+                                </li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>

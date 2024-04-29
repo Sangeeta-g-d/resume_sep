@@ -1,0 +1,129 @@
+.top-header{
+    display: flex;
+    margin-bottom: 10px;
+}
+.black{
+    height: 5px;
+    flex: 1;
+    background-color: rgb(242, 23, 23);
+    margin-bottom: 20px;
+}
+.gray{
+    height: 5px;
+    flex: 2;
+    background-color: #373737;
+    margin-bottom: 20px;
+}
+.personal{
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+    justify-content: space-between;
+    
+}
+.img-section, .name, .contact-info{
+   
+    margin-bottom: 25px;
+  
+}
+.img-section{
+    flex: 1;
+}
+.name{
+    flex: 2;
+    margin-top: 30px;
+   
+    align-items: center;
+}
+.top-p{
+    margin: 0px;
+    font-family: "GFS Didot", serif;
+    font-style: normal;
+    font-size: 14px;
+   text-align: start;
+   margin-bottom: 5px;
+}
+.name-h{
+    font-size: 34px;
+    font-family: "GFS Didot", serif;
+    font-style: normal;
+    font-weight: 800;
+    
+   
+}
+.round-image {
+    width: 100px; /* Adjust the size as desired */
+    height: 100px; /* Adjust the size as desired */
+    border-radius: 50%; /* Makes the image round */
+}
+.main-section{
+   
+    padding: 20px;
+    justify-content: end;
+}
+.main-h{
+    font-size: 20px;
+    font-family: "GFS Didot", serif;
+    font-style: normal;
+    font-weight: 400;
+    border-bottom: 1.5px solid #373737;
+    text-align: start;
+
+}
+.temp-left-side{
+    flex: 2;
+    text-align: start;
+    padding-right: 10px;
+    padding-left: 10px;
+  
+}
+.temp-right-side{
+    flex: 1;
+    text-align: start;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.main-p{
+   
+    font-family: "GFS Didot", serif;
+    font-style: normal;
+    font-size: 13px;
+   margin: 0px;
+   text-align: start;
+}
+.main-pp{
+   
+    font-family: "GFS Didot", serif;
+    font-style: normal;
+    font-size: 13px;
+   margin: 0px;
+   text-align: start;
+   line-height: 27px;
+}
+.sections{
+    margin-bottom: 30px;
+}
+.sub-h{
+    font-family: "GFS Didot", serif;
+    font-style: normal;
+    font-size: 16px;   
+    text-align: start;
+
+}
+.edu-h{
+    font-family: "GFS Didot", serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;   
+}
+.c-name{
+    font-family: "GFS Didot", serif;
+    font-style: normal;
+    font-size: 14px;
+    text-align: start;
+}
+.skill-list{
+    font-family: "GFS Didot", serif;
+    font-style: normal;
+    font-size: 14px;
+}

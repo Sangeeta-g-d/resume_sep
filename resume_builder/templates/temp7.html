@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Resume Builder</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- Icon Font Stylesheet -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="/static/new_landing/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+  <link href="/static/new_landing/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <!--custom font-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Stoke:wght@300;400&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Stoke:wght@300;400&display=swap"
+    rel="stylesheet">
+
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="/static/new_landing/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Template Stylesheet -->
+  <link href="/static/new_landing/css/style.css" rel="stylesheet">
+  <link href="/static/new_landing/css/temp7.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="/static/new_landing/css/new_style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+  
+
+
+  <style>
+    .testimonial-item {
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .testimonial-item:hover {
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+
+    .hidden {
+      display: none;
+    }
+
+    .new_section {
+      width: 50px;
+      max-height: 900px;
+      /* Set your desired fixed height here */
+      overflow-y: auto;
+      /* Enable vertical scrolling */
+    }
+
+    @media only screen and (max-width: 600px) {
+      .custom-container {
+        margin-bottom: 10px;
+        /* Adjust spacing between sections */
+      }
+
+      .columns-wrapper {
+        flex-direction: column;
+        /* Stack columns vertically */
+      }
+
+      .column {
+        width: 100%;
+        /* Make columns full-width */
+        margin-right: 0;
+        /* Remove margin */
+      }
+
+      .custom-button {
+        width: 100%;
+        /* Make buttons full-width */
+      }
+
+      .form-control {
+        width: 100%;
+        /* Make form inputs full-width */
+      }
+    }
+    #downloadBtn {
+  background-color: #fc081f ; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 15px;
+ 
+}
+  </style>
+</head>
+
+<body>
+
+
+
+
+  <!-- Navbar start -->
+  <div class="container-fluid fixed-top">
+    
+
+    <div class="container px-0">
+      <nav class="navbar navbar-light bg-white navbar-expand-xl">
+        <a href="/" class="navbar-brand">
+          <img src="/static/new_landing/img/recruitintell.png" width="180px" height="70px">
+      </a>
+        <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars text-primary"></span>
+        </button>
+        <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+            <div class="navbar-nav mx-auto">
+               
+              
+            </div>
+            <div class="d-flex m-3 me-0">
+                <div class="navbar-nav mx-auto">
+               
+               
+              
+              
+               </div>
+            </div>
+        </div>
+    </nav>
+    </div>
+</div>
+
+
+  <div class="container-fluid fruite py-5" style="margin-top: 100px;">
+    <div class="container py-5">
+      <div class="tab-class text-center">
+        <div class="row">
+          <div class="col-md-5">
+            <div class="container-shadow">
+              <div class="left-side">
+
+                <button type="button" class="custom-button" onclick="toggleContainer()">
+                  <i class="fas fa-chevron-down"></i>
+                  <h3 class="mb-0 display-3 resume-form">Personal Information</h3>
+                </button>
+
+                <div id="profile" class="custom-container custom-container1 hidden">
+                  <div class="columns-wrapper">
+                    <div class="column">
+                      <!-- Column 1: Profile Image -->
+                      <img src="/static/dashboard_assets/img/team-2.jpg" alt="Profile Image" class="profile-image"><br>
+                      <button class="edit-button" data-toggle="modal" data-target="#uploadModal">
+                        <i class="fas fa-pencil-alt"></i>&nbsp;
+                        Edit
+                    </button>
+                <br>
+
+
+                      <div id="imagePopup" class="popup">
+                        <!-- Popup content -->
+                        <label for="imageInput">Image:</label>
+                        <input type="file" id="imageInput" accept="image/*">
+                        <button onclick="closePopup()">Close</button>
+                      </div>
+
+                    </div>
+
+                    <div class="column">
+                      <!-- Column 2: User Information -->
+                      <div class="form-group">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" class="form-control" id="firstName" onkeyup="updateFName_Lname()">
+                      </div>
+                      <div class="form-group">
+                        <label for="phoneNumber">Phone Number:</label>
+                        <input type="text" class="form-control" id="phoneNumber" onkeyup="updatePhoneno()">
+                      </div>
+                      <div class="form-group">
+                        <label for="phoneNumber">Linked URL:</label>
+                        <input type="text" class="form-control" id="linkedin" onkeyup="updateLinkedin()">
+                      </div>
+                    </div>
+                    <div class="column">
+                      <div class="form-group">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" class="form-control" id="lastName" onkeyup="updateFName_Lname()">
+                      </div>
+                      <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" onkeyup="updateEmail()">
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <button type="button" class="custom-button" onclick="toggleSummary()">
+                  <i class="fas fa-chevron-down"></i>
+                  <h3 class="mb-0 display-3 resume-form">Profile Summary</h3>
+                </button>
+                <div id="summary" class="custom-container hidden">
+                  <div class="experience-content">
+                    <form>
+                      <div class="form-group">
+                        <label for="summaryTextArea">Add Profile Summary:</label>
+                        <textarea class="form-control" id="summary1" name="summary" cols="45" rows="5"
+                          onkeyup="updateSummary()"></textarea>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <br>
+                <button type="button" class="custom-button" onclick="toggleSkills()">
+                  <i class="fas fa-chevron-down"></i>
+                  <h3 class="mb-0 display-3 resume-form">Skills</h3>
+                </button>
+
+                <div id="skills" class="custom-container custom-container1 hidden">
+                  <div class="columns-wrapper">
+                    <div class="column2" id="column1">
+                      <!-- Column 1: Profile Image -->
+
+
+
+                      <div class="form-group" id="skillContainer1">
+                        <label for="skill1">Add Skills(Separated by comma):</label>
+                        <textarea class="form-control" id="skill1" cols="45" rows="5"
+                          onkeyup="updateSkills()"></textarea>
+                      </div>
+
+
+                    </div>
+
+
+
+                  </div>
+                </div>
+                <br>
+                <button type="button" class="custom-button" onclick="workexperience()">
+                  <i class="fas fa-chevron-down"></i>
+                  <h3 class="mb-0 display-3 resume-form">Work Experience</h3>
+                </button>
+                <div id="container1" class="custom-container hidden">
+                  <div class="experience-section">
+                    <div class="experience-header" onclick="toggleExperience(this)">
+                      <i class="fas fa-chevron-down"></i>
+                      <p><b>Experience 1</b></p>
+                    </div>
+                    <div class="experience-content">
+                      <form id="experience1">
+                        <div class="form-group">
+                          <input type="text" id="jobtitle1" class="form-control" placeholder="Designation"
+                            name="jobtitle1" style="height: 30px;" onkeyup="updateExperience()">
+                        </div>
+
+                        <div class="form-group">
+                          <input type="text" id="company1" class="form-control" placeholder="Company Name"
+                            name="company1" style="height: 30px;" onkeyup="updateExperience()">
+                        </div>
+
+
+                        <div class="form-group">
+                          <label for="from1" style="margin-right: 10px;">From:</label>
+                          <input type="month" id="from1" name="from1" class="form-control" style="height: 35px;"
+                            onchange="updateExperience()">
+                        </div>
+                        <div class="form-group">
+                          <label for="to1" style="margin-right: 10px;">To:</label>
+                          <span id="to1Container">
+                            <input type="month" id="to1" class="form-control" name="to1" style="height: 35px;"
+                              onchange="updateExperience()">
+                          </span>
+                          <label for="present1" style="margin-left: 10px;">
+                            <input type="checkbox" id="present1" onchange="handlePresentCheckbox()"> Present
+                          </label>
+                        </div>
+
+
+                        <div class="form-group">
+                          <label for="description1">Description:</label>
+                          <textarea id="description1" class="form-control" name="description1" rows="5"
+                            onkeyup="updateExperienceDescription()"></textarea>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <input type="submit" value="+ Add New Experience" onclick="addNewExperience()">
+                  </div>
+                </div>
+                <br>
+                <button type="button" class="custom-button" onclick="education()">
+                  <i class="fas fa-chevron-down"></i>
+                  <h3 class="mb-0 display-3 resume-form">Education</h3>
+                </button>
+
+                <div id="container2" class="custom-container hidden">
+                  <div class="education-section">
+                    <div class="education-header" onclick="toggleEducation(this)">
+                      <i class="fas fa-chevron-down"></i>
+                      <p><b>Education 1</b></p>
+                    </div>
+                    <div class="education-content">
+                      <form>
+                        <div class="form-group">
+                          <input type="text" id="degreeInput" class="form-control" placeholder="Degree"
+                            name="degreeInput" style="height: 30px;" onkeyup="updateDegree()">
+                        </div>
+                        <div class="form-group">
+                          <input type="text" id="institution1" class="form-control" placeholder="Institution Name"
+                            name="institution1" style="height: 30px;" oninput="updateInstitution()">
+                        </div>
+                        <div class="form-group">
+                          <input type="text" id="city" class="form-control" placeholder="City" name="country1"
+                            style="height: 30px;" onkeyup="updateCityCountry()">
+                        </div>
+                        <div class="form-group">
+                          <label for="from1" style="margin-right: 10px;">From:</label>
+                          <input type="month" id="degreeFromInput" name="degreeFromInput" class="form-control"
+                            style="height: 35px;" onchange="updateDegreeYear()">
+                        </div>
+                        <div class="form-group">
+                          <label for="to1" style="margin-right: 10px;">To:</label>
+                          <input type="month" id="degreeToInput" class="form-control" name="degreeToInput"
+                            style="height: 35px;" onchange="updateDegreeYear()">
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" value="+ Add New Education" onclick="addNewEducation()">
+                  </div>
+                </div>
+
+
+                <br>
+                <button type="button" class="custom-button" onclick="projects()">
+                  <i class="fas fa-chevron-down"></i>
+                  <h3 class="mb-0 display-3 resume-form">Projects</h3>
+                </button>
+
+                <div id="container3" class="custom-container hidden">
+                  <div class="project-section1">
+                    <div class="experience-header" onclick="toggleProjects(this)">
+                      <i class="fas fa-chevron-down"></i>
+                      <p><b>Project 1</b></p><br>
+                    </div>
+                    <div class="project-content">
+                      <form id="experience1">
+                        <div class="form-group">
+                          <input type="text" id="projectName" class="form-control" placeholder="Project Name"
+                            oninput="updateProjectname()" name="company1" style="height: 30px;">
+                        </div>
+
+                        <div class="form-group">
+                          <label for="description1">Tools used:</label>
+                          <textarea id="projectTools" class="form-control" name="description1" rows="3"
+                            oninput="updateProjectTools()"></textarea>
+                        </div>
+                        <div class="form-group">
+                          <label for="description1">Link:</label>
+                          <input type="text" id="projectLink" class="form-control" placeholder="Link" name="jobtitle1"
+                            oninput="updateProjectLink()" style="height: 30px;">
+
+                        </div>
+                        <div class="form-group">
+                          <label for="description1">Description:</label>
+                          <textarea oninput="updateProjectDes()" id="projectDes" class="form-control"
+                            name="description1" rows="5"></textarea>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <input type="submit" value="+ Add New Project" onclick="addNewProject()">
+                  </div>
+                </div><br>
+                <button type="button" class="custom-button" onclick="toggleAchievements()">
+                  <i class="fas fa-chevron-down"></i>
+                  <h3 class="mb-0 display-3 resume-form">Certification</h3>
+                </button>
+
+
+
+                <div id="achievements" class="custom-container hidden">
+                  <div class="experience-content">
+                    <form>
+                      <div class="form-group">
+                        <label for="achievementstext">Add Certificates:</label>
+                        <textarea id="achievementstext" class="form-control" name="description1" cols="45" rows="5"
+                          oninput="updateAchievements()"></textarea>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                <br>
+                <button type="button" class="custom-button" onclick="toggleLanguages()">
+                  <i class="fas fa-chevron-down"></i>
+                  <h3 class="mb-0 display-3 resume-form">Languages Known</h3>
+                </button>
+
+                <div id="languages" class="custom-container custom-container1 hidden">
+                  <div class="columns-wrapper">
+                    <div class="column2">
+
+
+                      <div class="form-group">
+                        <label for="languagetext">Add Languages Know:</label>
+                        <textarea id="languagetext" class="form-control" name="description1" cols="45" rows="5"
+                          oninput="updateLanguages()"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-7">
+          
+            <!-- Content for the second half of the page -->
+            <div class="container-shadow1">
+              <div class="btncontainer" style="display: flex; justify-content: space-around;">
+              <button  id="downloadBtn">Download as PDF</button>
+              <button id="uploadresume">Upload Resume</button>
+            </div>
+              <br>
+              <div id="temp1" class="content_wrapper">
+                <div id="dynamicContent">
+                   
+                        <div class='row introduction'><!--1st row start-->
+                            <div class="col-md-7">
+                                <img class="candidate mb-2" src="https://picsum.photos/150">
+                                <h3 style="margin:15px; font-size:22px; text-align: center;"><span id="Display_Fname">Diana </span><span id="Display_Lname">&nbsp; Dawa</span></h3>
+                               
+                               
+                            </div>
+                            <div class="col-md-5 text-end " style="margin-right:0px;">
+                              
+
+<ul >
+    <li id="Display_Email"> 
+        <i class="fas fa-envelope"></i> abcd@gmail.com
+    </li> 
+    <li id="Display_Phoneno"> 
+        <i class="fas fa-phone"></i> 9876543210 
+    </li> 
+    <li id="Display_lnkedin"> 
+        <i class="fab fa-linkedin"></i> in.com/in/dianas.scott 
+    </li>
+</ul>
+
+                                
+                            </div>
+                        </div><!--1st row end-->
+                        <div class='row'>
+                            <div class='col-md-12'>
+                            <p id="Display_Summary">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis sint illo quod tempore dicta exercitationem nihil amet quisquam voluptatum fuga, provident rem cum officiis aperiam inventore repudiandae! Accusamus, totam eum.s</p>
+                            </div>
+                        </div>
+
+                
+                        <div class='row'><!--2nd row start-->
+                            <div class='col-md-12'>
+                                <h2>Skills</h2>
+                            </div>
+                            <div class='col skills'>
+                                <ul id="skillsList" >
+                                    <li  >Teamwork</li>
+                                    <li  >Leadership</li>
+                                    <li  >Flexibility</li>
+                                </ul>
+                            </div>
+                           
+                        </div><!--2nd row end-->
+                
+                        <div class='row'><!--3rd row start-->
+                            <div class='col-md-12'><h2>Work Experience</h2></div>
+                            <div class="col-md-12">
+                                <section class='experience-section'>
+                                    <h3 id="Display_Designation" >Digital Marketing Manager</h3>
+                                    <article class='experience-article'>
+                                    
+                                        <p class="grey italic"> <i><span id="Display_From">06/2018</span>-<span id="Display_To">Present</span></i> <i id="Display_Cname">  Astoria Baumax </i> </p>
+                                       
+                                                <p style="font-size:14px;" id="Display_Description">Created a new format for reporting and presenting the sales, customer engagement and Google Ads reports that shortened the number of meetings by 30% during the last 3 quarters.esenting the sales, customer engagement and Google Ads reports that shortened the number of meetings by 30% during the last 3 quarters.esenting the sales, customer engagement and Google Ads reports that shortened the number of meetings by 30% during the last 3 quarters.esenting the sales, customer engagement and Google Ads reports that shortened the number of meetings by 30% during the last 3 quarters.</p>
+                                           
+                                    </article>
+                                </section>
+                                <div  id="experienceContainer"></div>
+                            </div>
+                        </div><!--3rd row end-->
+                
+                        <div class='row'><!--3rd row start-->
+                            <div class='col-md-12'><h2>Projects</h2></div>
+                            <div class="col-md-12">
+                                <section class='experience-section'>
+                                    <h3 id="displayProjectName">Fees Management System</h3>
+                                    <article class='experience-article'>
+                                    
+                                        <p> <b>Tools used :<span  id="displayTools"> python, java, c, cpp</span></b> </p>
+                                       <p id="displayProjectDes">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro quibusdam repellat error repudiandae, nulla commodi accusamus consequatur atque temporibus sunt voluptas, ab accusantium iure, sit voluptates doloribus est ratione impedit. orem ipsum dolor sit amet consectetur adipisicing elit. Porro quibusdam repellat error repudiandae, nulla commodi accusamus consequatur atque temporibus sunt voluptas, ab accusantium iure, sit voluptates doloribus est ratione impedit.</p>
+                                    </article>
+                                </section>
+                                <div id="projectsContainer"></div>
+                            </div>
+                        </div><!--3rd row end-->
+                
+                        <div class="row"><!--4th row start-->
+                            <div class="col-md-12">
+                                <h2>Education</h2>
+                            </div>
+                            <div class="col-md-12">
+                                <p id="displayDegree"><b>MS in international Marketing and Management</b></p>
+                                <p id="displayCollege" >Karnataka University  - <span id="displayCity">Dharwad</span></p>
+                                <p>
+                                <i><span id="displayDegreeFrom">06/2018</span>-<span id="displayDegreeTo">Present</span></i> </p> 
+                            </div>
+                            <div  id="educationContainer"></div>
+                        </div><!--4th row end-->
+                
+                        <div class="row p-0"><!--5th row start-->
+                            <div class="col-md-12">
+                                <h2>Certificates</h2>
+                            </div>
+                            <div class="box" id="achievementList">
+                                <div class="col-md-12 " >
+                                    <ul  >
+                                        <li  >Google Analytics Individual Qualification (2019).</li>
+                                        <li  >SEMrush Content Marketing Toolkit Course (2021).</li>
+                                    </ul>
+                                </div>
+                               
+                            </div>
+                        </div><!--5th row end-->
+                    
+
+                 </div>
+                </div>
+              </div>
+            </div>
+
+            <script>
+              document.getElementById("downloadBtn").addEventListener("click", function() {
+                  // Select the element containing the content you want to download
+                  var element = document.getElementById("temp1");
+              
+                  // Options for the PDF generation
+                  var opt = {
+                      margin: 0.5,
+                      filename: 'resume.pdf',
+                      image: { type: 'jpeg', quality: 0.98 },
+                      html2canvas: { scale: 2 },
+                      jsPDF: { 
+                          unit: 'in', 
+                          format: 'a4', // Set the format to A4 size
+                          orientation: 'portrait' // Set the orientation to portrait
+                      }
+                  };
+              
+                  // Convert HTML to PDF
+                  html2pdf()
+                      .from(element)
+                      .set(opt)
+                      .save();
+              });
+              </script>
+              <script>
+                // Function to fetch and update degree information
+                function updateDegreeInfo() {
+                    // Make an AJAX request to fetch the updated degree information
+                    fetch('/get_degree_info/')
+                        .then(response => response.json())
+                        .then(data => {
+                            // Update the content of the displayDegree element
+                            document.getElementById('displayDegree').innerText = data.degree;
+                        })
+                        .catch(error => {
+                            console.error('Error fetching degree information:', error);
+                        });
+                }
+            
+                function updateCompanyInfo() {
+            // Make an AJAX request to fetch the updated company information
+            fetch('/get_company_info/')
+              .then(response => response.json())
+              .then(data => {
+                  // Update the content of the displayDegree element, wrapping the company name in <b> tag for bold formatting
+                  document.getElementById('Display_Cname').innerHTML = '<b>' + data.companyname + '</b>';
+              })
+              .catch(error => {
+                  console.error('Error fetching company information:', error);
+              });
+            }
+            
+                function updateFnameInfo() {
+            // Make an AJAX request to fetch the updated degree information
+            fetch('/get_first_name_info/')
+              .then(response => response.json())
+              .then(data => {
+                  // Capitalize the first letter of the fetched first name
+                  const capitalizedFname = data.fname.charAt(0).toUpperCase() + data.fname.slice(1);
+                  
+                  // Update the content of the displayDegree element with the capitalized first name
+                  document.getElementById('Display_Fname').innerText = capitalizedFname;
+              })
+              .catch(error => {
+                  console.error('Error fetching first name information:', error);
+              });
+            }
+            
+            
+                function updateLnameInfo() {
+                    // Make an AJAX request to fetch the updated degree information
+                    fetch('/get_last_name_info/')
+                    .then(response => response.json())
+              .then(data => {
+                  // Capitalize the first letter of the fetched first name
+                  const capitalizedLname = data.lname.charAt(0).toUpperCase() + data.lname.slice(1);
+                  
+                  // Update the content of the displayDegree element with the capitalized first name
+                  document.getElementById('Display_Lname').innerText = capitalizedLname;
+              })
+              .catch(error => {
+                  console.error('Error fetching first name information:', error);
+              });
+                }
+            
+            
+                function updateEmailInfo() {
+                    // Make an AJAX request to fetch the updated degree information
+                    fetch('/get_email_info/')
+                        .then(response => response.json())
+                        .then(data => {
+                            // Update the content of the displayDegree element
+                            document.getElementById('Display_Email').innerText = data.email;
+                        })
+                        .catch(error => {
+                            console.error('Error fetching degree information:', error);
+                        });
+                }
+                function updateLinkedinInfo() {
+                    // Make an AJAX request to fetch the updated degree information
+                    fetch('/get_linkedin_info/')
+                        .then(response => response.json())
+                        .then(data => {
+                            // Update the content of the displayDegree element
+                            document.getElementById('Display_lnkedin').innerText = data.linkedin;
+                        })
+                        .catch(error => {
+                            console.error('Error fetching degree information:', error);
+                        });
+                }
+                function updatePhone_noInfo() {
+                    // Make an AJAX request to fetch the updated degree information
+                    fetch('/get_phone_no_info/')
+                        .then(response => response.json())
+                        .then(data => {
+                            // Update the content of the displayDegree element
+                            document.getElementById('Display_Phoneno').innerText = data.phone_no;
+                        })
+                        .catch(error => {
+                            console.error('Error fetching degree information:', error);
+                        });
+                }
+            
+                function updateProjectInfo() {
+                    // Make an AJAX request to fetch the updated degree information
+                    fetch('/get_project_info/')
+                        .then(response => response.json())
+                        .then(data => {
+                            // Update the content of the displayDegree element
+                            document.getElementById('displayProjectName').innerText = data.project;
+                        })
+                        .catch(error => {
+                            console.error('Error fetching project information:', error);
+                        });
+                }
+            
+                function updateDesignationInfo() {
+                    // Make an AJAX request to fetch the updated degree information
+                    fetch('/get_designation_info/')
+                        .then(response => response.json())
+                        .then(data => {
+                            // Update the content of the displayDegree element
+                            document.getElementById('Display_Designation').innerText = data.designation;
+                        })
+                        .catch(error => {
+                            console.error('Error fetching degree information:', error);
+                        });
+                }
+            
+                function updateUniversityInfo() {
+                    // Make an AJAX request to fetch the updated degree information
+                    fetch('/get_university_info/')
+                        .then(response => response.json())
+                        .then(data => {
+                            // Update the content of the displayDegree element
+                            document.getElementById('displayCollege').innerText = data.university;
+                        })
+                        .catch(error => {
+                            console.error('Error fetching degree information:', error);
+                        });
+                }
+            
+                function updateLanguagesInfo() {
+                    // Make an AJAX request to fetch the updated degree information
+                    fetch('/get_languages_info/')
+                        .then(response => response.json())
+                        .then(data => {
+                          const languagesArray = data.languages.split(',');
+                          const languagesList = document.getElementById('languageList');
+                          languagesList.innerHTML = '';
+                          languagesArray.forEach(language => {
+                         
+                          const listItem = document.createElement('li');
+                         
+                          listItem.textContent = language.trim(); // Trim extra whitespace
+                         
+                          languagesList.appendChild(listItem);
+                      });
+                    })
+                  .catch(error => {
+                      console.error('Error fetching skills information:', error);
+                  });
+            }
+                       
+            
+                function updateSkillsInfo() {
+              // Make an AJAX request to fetch the updated skills information
+              fetch('/get_skills_info/')
+                  .then(response => response.json())
+                  .then(data => {
+                      // Split the skills text by commas
+                      const skillsArray = data.skills.split(',');
+                      // Get the skillsList element
+                      const skillsList = document.getElementById('skillsList');
+                      // Clear the previous content of the skillsList element
+                      skillsList.innerHTML = '';
+                      // Iterate over the skillsArray to create list items
+                      skillsArray.forEach(skill => {
+                          // Create a new list item element
+                          const listItem = document.createElement('li');
+                          // Set the text content of the list item to the current skill
+                          listItem.textContent = skill.trim(); // Trim extra whitespace
+                          // Append the list item to the skillsList element
+                          skillsList.appendChild(listItem);
+                      });
+                  })
+                  .catch(error => {
+                      console.error('Error fetching skills information:', error);
+                  });
+            }
+                function updateSummaryInfo() {
+              // Make an AJAX request to fetch the updated summary information
+              fetch('/get_summary_info/')
+                  .then(response => response.json())
+                  .then(data => {
+                      // Split the summary text into lines
+                      const summaryLines = data.summary.split('\n');
+                      // Initialize an empty string to store the continuous summary
+                      let continuousSummary = '';
+                      // Concatenate each summary line with a space to form a continuous paragraph
+                      for (let i = 0; i < summaryLines.length; i++) {
+                          continuousSummary += summaryLines[i] + ' ';
+                      }
+                      // Update the content of the displaySummary element with the continuous paragraph
+                      document.getElementById('Display_Summary').innerText = continuousSummary;
+                  })
+                  .catch(error => {
+                      console.error('Error fetching summary information:', error);
+                  });
+            }
+            
+            
+                // Call the function when the page loads
+                document.addEventListener('DOMContentLoaded', updateDegreeInfo);
+                document.addEventListener('DOMContentLoaded', updateEmailInfo);
+                document.addEventListener('DOMContentLoaded', updatePhone_noInfo);
+                document.addEventListener('DOMContentLoaded', updateLinkedinInfo);
+                document.addEventListener('DOMContentLoaded', updateFnameInfo);
+                document.addEventListener('DOMContentLoaded', updateLnameInfo);
+                document.addEventListener('DOMContentLoaded', updateDesignationInfo);
+                document.addEventListener('DOMContentLoaded', updateSkillsInfo);
+                document.addEventListener('DOMContentLoaded', updateSummaryInfo);
+                document.addEventListener('DOMContentLoaded', updateUniversityInfo);
+                document.addEventListener('DOMContentLoaded', updateCompanyInfo);
+                document.addEventListener('DOMContentLoaded', updateLanguagesInfo);
+              
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Include jQuery, Popper.js, and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
+
+
+
+  <!-- Footer Start -->
+  <div class="container-fluid bg-dark text-white-50 footer pt-1 mt-1">
+    <div class="container py-5">
+
+    
+
+      
+    </div>
+  </div>
+  <!-- Footer End -->
+  <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="uploadModalLabel">Edit Image</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Form inside the modal -->
+                <form id="uploadForm"  method="POST" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <div class="form-group">
+                      <label for="imageInput">Upload Image</label>
+                      <input type="file" class="form-control" id="imageInput" name="image_input" accept="image/*" required>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+          
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+ document.getElementById('uploadForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Create a new FormData object and append the file
+    var formData = new FormData(this);
+
+    // Close the modal immediately after initiating the form submission
+    $('#uploadModal').modal('hide');
+
+    // Use fetch to send the form data to the server
+    fetch('/upload-image/', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.image_url) {
+            // Update the src attribute of the image with the new image URL
+            document.getElementById('displayImage').src = data.image_url;
+        } else {
+            console.error('Failed to upload image:', data.error);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+
+  </script>
+  
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  <script>
+    $(document).ready(function(){
+      $('#uploadresume').click(function(){
+        $('#uploadModal').modal('show');
+      });
+    });
+  </script>  
+
+
+
+
+
+  <!-- Back to Top -->
+  <a href="#" class="btn btn-danger border-1 border-primary rounded-circle back-to-top"><i
+      class="fa fa-arrow-up"></i></a>
+
+
+  <!-- JavaScript Libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/new_landing/lib/easing/easing.min.js"></script>
+  <script src="/static/new_landing/lib/waypoints/waypoints.min.js"></script>
+  <script src="/static/new_landing/lib/lightbox/js/lightbox.min.js"></script>
+  <script src="/static/new_landing/lib/owlcarousel/owl.carousel.min.js"></script>
+
+  <!-- Template Javascript -->
+  <script src="/static/new_landing/js/main.js"></script>
+  <script src="/static/new_landing/js/temp7.js"></script>
+</body>
+
+</html>

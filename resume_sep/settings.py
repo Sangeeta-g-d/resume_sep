@@ -51,6 +51,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'resume_sep.urls'
+AUTH_USER_MODEL = 'resume_builder.NewUser'
 
 TEMPLATES = [
     {
@@ -80,6 +81,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 
 # Password validation

@@ -1,0 +1,79 @@
+#dynamicContent{
+    font-family: Times New Roman;
+    
+}
+
+.header p{
+   font-size: 13px;
+   
+   margin-bottom: 0;
+   line-height: 26px;
+   font-family: Times New Roman;
+    
+}
+
+.header{
+    text-align: center;
+    line-height: 0rem;
+    
+}
+.header h3{
+    color:rgb(119, 61, 113);
+    line-height: 60px;
+    font-family: Times New Roman;
+}
+
+hr{
+   
+    color:rgb(101, 47, 97);
+    line-height: 10px;
+    margin: 0rem 0;
+    
+}
+hr:not([size]) {
+    height: 1.3px;
+}
+.summary ,.exp,.skills,.projects {
+    font-family: Times New Roman;
+    text-align: start;
+    font-size: 13px;
+}
+h5{
+    color:rgb(119, 61, 113);
+    text-align: start;
+    font-family: Times New Roman;
+    line-height: 40px;
+}
+h6{
+    text-align: start;
+    font-family: Times New Roman;
+}
+.sub_heading1{
+    display: flex;
+    justify-content:space-between;
+    font-size: 17px ;
+    text-align: start;
+    font-weight: bold;
+    line-height: 10px;
+    font-family: Times New Roman;
+
+}
+.sub_heading2{
+    font-size: 14px ;
+    text-align: start;
+    font-weight: bold;
+    line-height: 8px;
+    font-family: Times New Roman;
+}
+.date{
+    font-size: 14px ;
+    text-align: start;
+    font-weight: bold;
+    line-height: 10px;
+    font-family: Times New Roman;
+}
+ul{
+    font-family: Times New Roman;
+    text-align: start;
+    font-size: 13px;
+}

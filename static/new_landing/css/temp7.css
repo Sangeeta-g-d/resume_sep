@@ -1,0 +1,64 @@
+
+div.container1{
+    background:#fff;
+    border-radius: 10px;
+    padding: 12px;
+    width: 60%;
+    height: 100vh;
+    overflow: auto;
+
+}
+:is(p,li){
+    font-size:14px;
+    margin: 6px;
+    font-family: "Helvetica", Times, serif;
+    text-align: start;
+}
+:is(h2,h3,h4){
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Helvetica", Times, serif;
+    text-align: start;
+}
+h2{
+    text-align:center;
+    border-top:2px solid;
+    border-bottom:2px solid;
+    text-transform: uppercase;
+    font-family: "Helvetica", Times, serif;
+}
+.contact{
+    list-style-type:none;
+    margin-top:20px;
+    font-family: "Helvetica", Times, serif;
+}
+.contact li{
+    margin-bottom:5px;
+    font-family: "Helvetica", Times, serif;
+}
+.contact li i{
+    margin-left:10px;
+    font-family: "Helvetica", Times, serif;
+}
+.grey{
+    color:grey;
+    display:flex;
+    justify-content:space-between;
+    font-family: "Helvetica", Times, serif;
+}
+.box{
+    display: flex;
+    font-family: "Helvetica", Times, serif;
+}
+.candidate{
+    border-radius: 50%;
+    max-width: 100%;
+    height: auto;
+    font-family: "Helvetica", Times, serif;
+}
+p, ul li{
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-family: "Helvetica", Times, serif;
+    text-align: start;
+}
