@@ -1,0 +1,109 @@
+.top-header{
+  
+    margin-bottom: 10px;
+}
+
+.gray{
+    height: 15px;
+    flex: 2;
+    background-color: #eeb0b0;
+    margin-bottom: 20px;
+}
+.personal{
+    display: flex;
+    padding-left: 10pxrgb(240, 187, 187);
+    padding-right: 10px;
+    justify-content: space-between;
+    
+}
+.img-section, .name, .contact-info{
+   
+    margin-bottom: 25px;
+  
+}
+.img-section{
+    flex: 1;
+}
+.name{
+    flex: 2;
+    margin-top: 30px;
+   
+    align-items: center;
+}
+.top-p{
+    margin: 0px;
+    font-family:"Roboto Condensed", sans-serif;
+    font-style: normal;
+    font-size: 14px;
+   text-align: start;
+   margin-bottom: 5px;
+}
+.name-h{
+    font-size: 36px;
+    font-family: "Roboto Condensed", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+   
+}
+.round-image {
+    width: 100px; /* Adjust the size as desired */
+    height: 100px; /* Adjust the size as desired */
+    border-radius: 50%; /* Makes the image round */
+}
+.main-section{
+   
+    padding: 20px;
+    justify-content: end;
+}
+.main-h{
+    font-size: 20px; 
+    font-family: "Roboto Condensed", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+   
+}
+.temp-left-side{
+    flex: 2;
+    text-align: start;
+    padding-right: 10px;
+    padding-left: 10px;
+  
+}
+.temp-right-side{
+    flex: 1;
+    text-align: start;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.main-p{
+   
+    font-family: "Roboto Condensed", sans-serif;
+    font-style: normal;
+    font-size: 13px;
+    margin: 0px;
+}
+.sections{
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgb(65, 64, 64);
+}
+.sub-h{
+    font-family: "Roboto Condensed", sans-serif;
+    font-style: normal;
+    font-size: 16px;   
+}
+.edu-h{
+    font-family: "Roboto Condensed", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;   
+}
+.c-name{
+    font-family:"Roboto Condensed", sans-serif;
+    font-style: normal;
+    font-size: 14px;
+}
+.skill-list{
+    font-family: "Roboto Condensed", sans-serif;
+    font-style: normal;
+    font-size: 14px;
+}

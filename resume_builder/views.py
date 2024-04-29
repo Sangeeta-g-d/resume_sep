@@ -521,3 +521,23 @@ def temp8(request):
         }
         return render(request, 'temp8.html', context)
     return render(request,'temp8.html')
+
+def temp9(request):
+    return render(request,'temp9.html')
+
+
+from django.core.files.storage import default_storage
+def upload_image(request):
+    if request.method == "POST":
+        image = request.FILES.get('image_input')
+        
+        # Save the uploaded image using default storage
+        image_path = default_storage.save('uploaded_images/' + image.name, image)
+        
+        # Get the URL of the uploaded image
+        image_url = default_storage.url(image_path)
+        
+        # Return the URL as JSON response
+        return JsonResponse({'image_url': image_url})
+    else:
+        return JsonResponse({'error': 'Invalid request'}, status=400)

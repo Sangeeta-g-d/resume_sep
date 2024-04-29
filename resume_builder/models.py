@@ -37,3 +37,9 @@ class EducationDetails(models.Model):
     university=models.CharField(max_length=5000, default='Add Your university')
     
     year_of_passing=models.CharField(max_length=5000, default='Add Your year of passing')
+
+class UploadedImage(models.Model):
+    image = models.ImageField(upload_to='uploads/')
+    
+    def _str_(self):
+        return self.image.url
